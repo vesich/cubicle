@@ -39,7 +39,6 @@ module.exports = () => (req, res, next) => {
             if (!isMatch) {
                 throw new Error('Wrong credentials!')
             } else {
-
                 req.user = createToken(user)
             }
         }
