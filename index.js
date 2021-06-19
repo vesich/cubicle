@@ -4,7 +4,6 @@ const databaseConfig = require('./config/database')
 const routesConfig = require('./config/routes')
 const storage = require('./middlewares/storage')
 
-
 start();
 
 async function start() {
@@ -13,6 +12,7 @@ async function start() {
     const port = 5000;
 
     await databaseConfig(app);
+
     expressConfig(app);
     app.use(await storage());
     routesConfig(app);

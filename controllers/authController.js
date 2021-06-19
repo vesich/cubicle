@@ -1,7 +1,7 @@
+const router = require('express').Router();
 const { validationResult, body } = require('express-validator');
 const { isGuest, isAuth } = require('../middlewares/guards');
 
-const router = require('express').Router();
 
 router.get('/register', isGuest(), (req, res) => {
     res.render('register', { title: 'Register' })
@@ -11,8 +11,7 @@ router.get('/login', isGuest(), (req, res) => {
     res.render('login', { title: 'Login' })
 })
 
-router.post(
-    '/register',
+router.post('/register',
     isGuest(),
     body('username', 'Username must be at least 5 characters long and may contain only alphanumeric characters')
         .trim()
